@@ -1,0 +1,1008 @@
+/* Custom Fonts*/
+@font-face {
+  font-family: 'Centra';
+  src: url('./assets/font/CentraNo2-Bold.ttf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Centra';
+  src: url('./assets/font/CentraNo2-Medium.ttf');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Centra';
+  src: url('./assets/font/CentraNo2-Book.ttf  ');
+  font-weight: 400;
+}
+
+/* Default Fonts*/
+* {
+  font-family: 'Centra', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 75px; 
+}
+
+body {
+  font-weight: 400;
+  overflow-x: hidden;
+  background-color: #121212 !important; 
+  color: #fff !important; 
+  font-family: 'Centra', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+}
+
+p, a, li, button, ul {
+  margin: 0;
+  padding: 0;
+  line-height: normal;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+}
+
+@media (min-width:1700px) {
+	main .container {
+		max-width: 100%;
+		padding: 0 150px;
+	}
+}
+
+p.success {
+	color: green;
+}
+
+p.danger {
+	color: red;
+}
+/************ Navbar Css ************/
+
+.Logo-icon {
+  width: 240px;
+  height: auto;
+  /* max-height kuralını kaldırdık, logo boyutu aynı kalacak */
+}
+
+nav.navbar {
+  padding: 16px 0; /* Başlangıçtaki dikey boşluk */
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 999;
+  transition: 0.32s ease-in-out;
+  display: flex; /* İçerikleri dikeyde hizalamak için eklendi */
+  align-items: center; /* İçerikleri dikeyde ortalar için eklendi */
+  min-height: 40px; /* Navbar'ın başlangıçtaki minimum yüksekliği (isteğe bağlı, daha tutarlı bir başlangıç için) */
+}
+nav.navbar.scrolled {
+  padding: 0px 0;
+  background-color: #ff914d;
+  min-height: 50px; /* Navbar'ın scroll olduğundaki minimum yüksekliğini daha da azalttık */
+  /* display ve align-items zaten nav.navbar'dan miras alınır */
+}
+nav.navbar a.navbar-brand {
+    /* width: 280px; */ /* Bu kuralı yoruma aldık/kaldırdık, logonun kendi genişliğini almasını sağlıyoruz */
+    /* Logonun sağında biraz boşluk bırakmak isterseniz: */
+    margin-right: 20px; 
+}
+nav.navbar .navbar-nav .nav-link.navbar-link {
+  font-weight: 400;
+  color: #fff !important;
+  letter-spacing: 0.8px;
+  padding: 0 25px; /* Dikey padding 0, linklerin boyutunu etkilemez */
+  font-size: 18px; /* Link metin boyutu aynı kalır */
+  opacity: 0.75;
+}
+nav.navbar .navbar-nav a.nav-link.navbar-link:hover,
+nav.navbar .navbar-nav a.nav-link.navbar-link.active {
+    opacity: 1;
+}
+span.navbar-text {
+    display: flex;
+    align-items: center;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-left: 14px;
+}
+
+.social-icons a {
+    width: 42px;
+    height: 42px;
+    background: rgba(0, 0, 0, 0.1);
+    display: inline-flex;
+    border-radius: 20%; /* Yuvarlak şekil için */
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: 1px solid rgba(226, 102, 2, 0);
+    transition: 0.3s ease-in-out;
+}
+.social-icons a::before {
+    content: "";
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    background-color: #e0feca;
+    border-radius: 20%;
+    transform: scale(0);
+    transition: 0.3s ease-in-out;
+}
+
+.social-icons a:hover::before {
+  transform: scale(1); /* Hoverda büyütme efekti */
+}
+
+.social-icons a img {
+  width: 24px; /* İkonun boyutu */
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+  object-fit: contain;
+}
+
+.github-logo {
+  transform: scale(1.8);
+}
+
+.github-logo:hover {
+  transform: scale(1.98); /* Hoverda GitHub ikonunu büyütme efekti */
+  filter: brightness(0) saturate(100%) invert(55%) sepia(83%) saturate(3500%) hue-rotate(10deg) brightness(97%) contrast(110%);
+}
+
+.social-icons a:hover img:not(.github-logo) {
+  filter: brightness(0) saturate(100%) invert(55%) sepia(83%) saturate(3500%) hue-rotate(10deg) brightness(97%) contrast(110%);
+  /* İkonun rengini değiştirmek için yukarıdaki filtreyi kullanabilirsiniz */
+  transform: scale(1.1); /* Hoverda ikon büyütme efekti */
+}
+
+.navbar-text button {
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid #fff;
+  padding: 18px 34px; /* Butonun orijinal padding'i */
+  font-size: 18px; /* Buton metninin orijinal font boyutu */
+  margin-left: 18px;
+  position: relative;
+  background-color: transparent;
+  transition: 0.3s ease-in-out;
+}
+.navbar-text button span {
+  z-index: 1;
+}
+.navbar-text button::before {
+  content: "";
+  width: 0%;
+  height: 100%;
+  position: absolute;
+  background-color: #fff;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  transition: 0.3s ease-in-out;
+}
+.navbar-text button:hover {
+  color: #121212;
+}
+.navbar-text button:hover::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+nav.navbar .navbar-toggler:active,
+nav.navbar .navbar-toggler:focus {
+  outline: none;
+    box-shadow: none;
+}
+nav.navbar .navbar-toggler-icon {
+  width: 24px;
+  height: 17px;
+  background-image: none;
+  position: relative;
+  border-bottom: 2px solid #fff;
+  transition: all 300ms linear;
+  top: -2px;
+}
+nav.navbar .navbar-toggler-icon:focus {
+  border-bottom: 2px solid #fff;
+}
+nav.navbar .navbar-toggler-icon:after,
+nav.navbar .navbar-toggler-icon:before {
+  width: 24px;
+  position: absolute;
+  height: 2px;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  content: '';
+  z-index: 2;
+  transition: all 300ms linear;
+}
+nav.navbar .navbar-toggler-icon:after {
+  top: 8px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:after {
+  transform: rotate(45deg);
+  background-color: #fff;
+  height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon:before {
+  transform: translateY(8px) rotate(-45deg);
+  background-color: #fff;
+  height: 2px;
+}
+nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  border-color: transparent;
+}
+
+/* Scroll olduğunda butonun paddingini azaltarak navbarın incelmesini sağlayan kural */
+/* Bu kuralı kaldırdık, çünkü butonun boyutu aynı kalmalıydı */
+/* nav.navbar.scrolled .navbar-text button {
+    padding: 10px 24px;
+} */
+
+
+/************ Banner Css ************/
+.banner {
+  margin-top: 0;
+  padding: 260px 0 100px 0;
+  background-image: url('./assets/img/banner-bg.svg');
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.banner .tagline {
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  padding: 8px 10px;
+  background: linear-gradient(120deg, #fa6602 0%, #e0feca 100%);
+  border: 0.5px solid rgba(255, 255, 255, 1);
+  font-size: 20px;
+  margin-bottom: 16px;
+  display: inline-block;
+}
+
+.banner h1 {
+  font-size: 65px;
+  font-weight: bolder;
+  letter-spacing: 0.8px;
+  line-height: 1;
+  margin-bottom: 20px;
+  display: block;
+  color: #ff914d;
+}
+.banner p {
+  color: #FFFFFF;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  width: 96%;
+  font-weight: bold;
+}
+.banner button {
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+  margin-top: 60px;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+.banner button svg {
+  font-size: 25px;
+  margin-left: 10px;
+  transition: 0.3s ease-in-out;
+  line-height: 1;
+}
+.banner button:hover svg {
+  margin-left: 25px;
+}
+.banner img {
+  animation: updown 3s linear infinite;
+}
+@keyframes updown {
+    0% {
+        transform: translateY(-20px);
+    }
+    50% {
+        transform: translateY(20px);
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+.txt-rotate > .wrap {
+  border-right: 0.08em solid #666;
+}
+
+/************ Skills Css ************/
+.skill {
+  padding: 0 0 100px 0; /* Alt dolguyu artırdık, böylece siyah kısım görünmez */
+  position: relative;
+}
+
+.skill-bx {
+  background: #ff914d;
+  border-radius: 64px;
+  text-align: center;
+  padding: 60px 40px;
+  margin-top: -60px;
+}
+.skill h2 {
+	font-size: 45px;
+	font-weight: 700;
+  color: #fff;
+}
+.skill p {
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    line-height: 1.5em;
+    margin: 14px 0 75px 0;
+}
+
+.skill-slider .item img {
+  width: 50%;
+  margin: 0 auto 15px auto;
+}
+
+.skill-slider .carousel-item {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 450px; /* Yüksekliği ayarladık */
+}
+
+.skill-slider .carousel-item img {
+  max-width: 30%;
+  height: auto;
+}
+
+.skill-slider .carousel-item .carousel-caption {
+  position: absolute;
+  bottom: 10px; /* Yazıyı alttan biraz daha yukarıya taşır */
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: #fff;
+  font-size: 18px;
+  z-index: 2;
+}
+
+.skill-slider .item h5 {
+  font-size: 20px;
+  color: #fff; /* Yazıyı beyaz yaparak net görünmesini sağlarız */
+  z-index: 3;
+}
+
+.background-image-left {
+  top: 0;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  z-index: -4;
+}
+
+.background-image-right {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50%;
+  z-index: -4;
+}
+
+
+/************ Projects Css ************/
+.project {
+  padding: 80px 0;
+  position: relative;
+  background: linear-gradient(120.21deg, #ffde59 -4.91%, #ff7f50 111.58%);
+}
+.project h2 {
+	font-size: 45px;
+	font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+.project p {
+  color: #fff;
+  font-size: 36px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 30px auto;
+  text-align: center;
+  width: 56%;
+}
+.project .nav.nav-pills {
+  width: 72%;
+  margin: 0 auto;
+  border-radius: 50px;
+  /* background-color: rgb(255 255 255 / 10%); Eski şeffaf arka plan */
+  background: linear-gradient(90.21deg, #ff914d -5.91%, #e0feca 111.58%); /* Yeni renkli gradient arka plan */
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Kenarlık ekleyerek daha belirgin hale getirebilirsiniz */
+}
+.project .nav.nav-pills .nav-item {
+  width: 100%;
+}
+.project .nav.nav-pills .nav-link {
+  background-color: transparent;
+  border-radius: 0;
+  padding: 17px 0;
+  color: #fff;
+  width: 100%;
+  font-size: 17px;
+  letter-spacing: 0.8px;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s ease-in-out;
+  text-align: center;
+  z-index: 0;
+}
+.project .nav.nav-pills .nav-link::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    background: linear-gradient(270.21deg, #ff914d -5.91%, #e0feca 111.58%);
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: 0.3s ease-in-out;
+}
+.project .nav.nav-pills .nav-link.active::before {
+    width: 100% !important;
+}
+.project .nav.nav-pills .nav-link.active {
+    border: 0.5px solid rgba(255, 255, 255, 1);
+}
+.nav-link#projects-tabs-tab-first {
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 55px 0px 0px 55px;
+}
+.nav-link#projects-tabs-tab-second {
+  border-top: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.5);
+}
+.nav-link#projects-tabs-tab-third {
+  border: 0.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 0 55px 55px 0;
+}
+.proj-imgbx {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  margin-bottom: 24px;
+  height: 250px; /* Sabit yükseklik tutarlı görünüm sağlar */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Görselin kapsayıcıya taşmadan ve boşluk bırakmadan sığması */
+.proj-imgbx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Görseli orantılı kırparak tam doldurur */
+  transition: transform 0.4s ease-in-out;
+}
+
+/* Hover efektiyle görseli biraz büyütme */
+.proj-imgbx:hover img {
+  transform: scale(1.1);
+}
+
+/* Hover arkaplan efekti */
+.proj-imgbx::before {
+  content: "";
+  background: linear-gradient(90.21deg, #ff914d -5.91%, #e0feca 111.58%);
+  opacity: 0.85;
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  transition: 0.4s ease-in-out;
+  z-index: 1;
+}
+
+.proj-imgbx:hover::before {
+  height: 100%;
+}
+
+/* Hover ile çıkan metin kutusu */
+.proj-txtx {
+  position: absolute;
+  text-align: center;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.proj-imgbx:hover .proj-txtx {
+  top: 50%;
+  opacity: 1;
+}
+
+.proj-txtx h4 {
+  font-size: 30px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  line-height: 1.1em;
+  color: #fff;
+}
+
+.proj-txtx span {
+  font-style: italic;
+  font-weight: 400;
+  font-size: 15px;
+  letter-spacing: 0.8px;
+  color: #fff;
+}
+
+
+
+/************ Contacts Css ************/
+.contact {
+  background-color: #ff914d;
+  padding: 60px 0 200px 0;
+}
+.contact img {
+  width: 92%;
+}
+.contact h2 {
+	font-size: 45px;
+	font-weight: 700;
+  margin-bottom: 30px;
+}
+.contact form input, .contact form textarea {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  color: #fff;
+  margin: 0 0 8px 0;
+  padding: 18px 26px;
+  font-weight: 500;
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease-in-out;
+}
+.contact form input:focus, .contact form textarea:focus {
+  background: rgba(255, 255, 255, 1);
+  color: #121212;
+}
+.contact form input::placeholder, .contact form textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #fff;
+}
+.contact form input:focus::placeholder, .contact form textarea:focus::placeholder {
+  color: #121212;
+  opacity: 0.8;
+}
+.contact form button {
+  font-weight: 700;
+  color: #000;
+  background-color: #fff;
+  padding: 14px 48px;
+  font-size: 18px;
+  margin-top: 25px;
+  border-radius: 0;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+.contact form button span {
+  z-index: 1;
+  position: relative;
+}
+.contact form button:hover {
+  color: #fff;
+}
+.contact form button::before {
+  content: "";
+  background: #121212;
+  width: 0;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  transition: 0.3s ease-in-out;
+}
+.contact form button:hover::before {
+  width: 100%;
+}
+
+/************ Footer Css ************/
+.footer {
+  padding: 0 0 50px 0;
+  background: linear-gradient(90.21deg, #e0feca -5.91%, #ff914d 111.58%);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.newsletter-bx {
+  background: #FFFFFF;
+  border-radius: 55px;
+  color: #121212;
+  padding: 85px 125px;
+  margin-bottom: 80px;
+  margin-top: -122px;
+}
+.newsletter-bx h3 {
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  line-height: 1.2em;
+}
+.new-email-bx {
+  background: #fff;
+  padding: 5px;
+  border-radius: 20px;
+  position: relative;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+}
+.new-email-bx::before {
+  content: "";
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: -1px;
+  left: -1px;
+  bottom: -1px;
+  right: -1px;
+}
+.new-email-bx::after {
+  content: "";
+  background: #fff;
+  border-radius: 20px;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.new-email-bx input {
+  width: 100%;
+  color: #121212;
+  font-weight: 500;
+  background: transparent;
+  border: 0;
+  padding: 0 15px;
+}
+.new-email-bx button {
+  background: linear-gradient(90.21deg, #AA367C -5.91%, #4A2FBD 111.58%);
+  padding: 20px 65px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 18px;
+}
+.footer img {
+  width: 26%;
+}
+.footer p {
+  font-weight: 400;
+  font-size: 14px;
+  color: #B8B8B8;
+  letter-spacing: 0.5px;
+  margin-top: 20px;
+}
+
+/* ProjectDetailsModal.css */
+
+/* Video embed için responsive stil - (önceden vardı, kopyala yapıştır yaparken unutma) */
+.video-responsive {
+    overflow: hidden;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio (9/16 = 0.5625) */
+    position: relative;
+    height: 0;
+}
+
+.video-responsive iframe {
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+/* Modalın arka planı - dış kısım */
+.modal-backdrop.show {
+    opacity: 0.7; /* Karartma seviyesini ayarlar, ana sayfanın turuncusuyla uyumlu olması için */
+    background-color: #000; /* Koyu bir arka plan rengi, ana sayfa turuncusuyla iyi durur */
+}
+
+/* Modalın içeriği - beyaz kutu */
+.modal-content {
+    background-color: #333333; /* Popup'ın iç arka plan rengi, ana temanıza uygun koyu bir renk */
+    color: #ffffff; /* Yazı rengi */
+    border-radius: 10px; /* Kenar yuvarlaklığı */
+    border: none; /* Kenarlık kaldırma */
+}
+
+/* Modal başlığı */
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    padding-top: 20px; /* Başlığın üstünden biraz boşluk ekledik */
+    padding-bottom: 15px; /* Başlığın altından biraz boşluk ekledik */
+}
+
+.modal-header .modal-title {
+    color: #ffffff; /* Başlık metin rengi */
+}
+
+/* Kapatma butonu (X işareti) */
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* X işaretini beyaza çevirir */
+    color: #ffffff; /* Bu bazen doğrudan çalışmaz, filter kullanmak daha garantidir */
+    opacity: 1; /* Görünürlüğünü ayarla */
+}
+
+/* Modal gövdesi (metin alanı) */
+.modal-body {
+    padding: 30px; /* İç boşluk */
+}
+
+/* Butonlar (Canlı Demo, GitHub, Kapat) */
+.modal-body .btn-primary,
+.modal-body .btn-secondary,
+.modal-footer .btn-secondary {
+    background-color: #FF7F50; /* Turuncu tonu */
+    border-color: #FF7F50; /* Kenarlık rengi */
+    color: #ffffff; /* Buton yazı rengi */
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+}
+
+.modal-body .btn-primary:hover,
+.modal-body .btn-secondary:hover,
+.modal-footer .btn-secondary:hover {
+    background-color: #ff914d; /* Hover rengi (biraz daha koyu turuncu) */
+    border-color: #ff914d;
+}
+
+/* Eğer linkler de varsa */
+.modal-body a {
+    color: #ff914d; /* Link rengi */
+}
+
+.modal-body a:hover {
+    color: #ff914d; /* Link hover rengi */
+}
+
+/* Experience Section CSS */
+.experience {
+  padding: 80px 0 120px 0; /* Increased bottom padding to prevent black section from showing */
+  background: linear-gradient(120.21deg, #ffde59 -4.91%, #ff914d 111.58%); /* Same gradient background as projects section */
+  color: #121212; /* Dark text color */
+  text-align: center;
+}
+
+.experience h2 {
+  font-size: 45px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #fff; /* Heading color */
+}
+
+.experience p {
+  font-size: 18px;
+  letter-spacing: 0.8px;
+  line-height: 1.5em;
+  margin: 14px auto 60px auto;
+  width: 70%;
+  color: #fff; /* Description text color */
+}
+
+.experience-grid {
+  display: flex;
+  flex-wrap: nowrap; /* Prevents cards from wrapping to the next line */
+  justify-content: center; /* Centers cards horizontally if there's extra space */
+  gap: 20px; /* Space between cards */
+  overflow-x: auto; /* Enables horizontal scrolling */
+  padding: 0 20px 20px; /* Adds horizontal padding and space for the scrollbar */
+  -webkit-overflow-scrolling: touch; /* Smoother scrolling on iOS */
+  /* width: 100%; - Bu zaten vardı, ancak bazen kapsayıcıdan kaynaklı sorunlar olabilir */
+  /* max-width: 100%; - Ekledik, kapsayıcının taşmasını engellemek için */
+}
+
+/* Optional: Customize the scrollbar */
+.experience-grid::-webkit-scrollbar {
+  height: 8px;
+}
+
+.experience-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.experience-grid::-webkit-scrollbar-thumb {
+  background: #ff7f50; /* Scrollbar color */
+  border-radius: 10px;
+}
+
+.experience-card-col {
+    flex: 0 0 auto; /* Do not grow, do not shrink, take content width */
+    width: 3200px; /* Adjusted width for each column item to fit 4 in a row on typical desktops */
+    max-width: 400px; /* Ensures it doesn't exceed this width */
+}
+
+.experience-card {
+  background-color: #ffffff; /* Card background color (white) */
+  border-radius: 15px;
+  padding: 15px; /* Reduced padding for smaller cards */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  width: 100%; /* Card takes full width of its column */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 320px; /* Minimum height for cards (adjusted for content) */
+  height: auto; /* Auto height based on content */
+}
+
+.experience-card:hover {
+  transform: translateY(-10px); /* Slight upward shift on hover */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* More prominent shadow on hover */
+}
+
+.experience-logo-container {
+  width: 80px; /* Logo container width */
+  height: 80px; /* Logo container height */
+  border-radius: 50%; /* For round logo */
+  background-color: #f0f0f0; /* Logo background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px; /* Reduced margin */
+  overflow: hidden; /* Prevents logo overflow */
+}
+
+.experience-logo {
+  max-width: 70%; /* Logo size within its container */
+  max-height: 70%;
+  object-fit: contain; /* Scales logo to fit while maintaining aspect ratio */
+}
+
+.experience-card h4 {
+  font-size: 20px; /* Smaller font size for title */
+  font-weight: 700;
+  margin-bottom: 8px; /* Reduced margin */
+  color: #ff7f50; /* Card title color */
+}
+
+.experience-card .experience-role {
+  font-size: 14px; /* Smaller font size */
+  font-weight: 600;
+  color: #555555;
+  margin-bottom: 3px; /* Reduced margin */
+}
+.experience-card .experience-duration {
+  font-size: 12px; /* Smaller font size */
+  color: #777777;
+  margin-bottom: 10px; /* Reduced margin */
+}
+
+.experience-card .experience-description {
+  font-size: 13px; /* Smaller font size */
+  color: #666666;
+  line-height: 1.5em; /* Adjusted line height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) { /* Added a new breakpoint for larger screens */
+  .experience-card-col {
+    width: 260px; /* Adjust column width for this breakpoint */
+    max-width: 260px;
+  }
+}
+
+@media (max-width: 1024px) { /* Adjusted breakpoint for larger tablets/smaller desktops */
+  .experience-card-col {
+    width: 240px; /* Adjust column width for this breakpoint */
+    max-width: 240px;
+  }
+  .experience-card {
+    min-height: 300px; /* Adjust min-height */
+  }
+}
+
+@media (max-width: 768px) {
+  .experience p {
+    width: 90%;
+  }
+  .experience-card-col {
+    width: 220px; /* Adjust column width for tablets */
+    max-width: 220px;
+  }
+  .experience-card {
+    min-height: 280px; /* Adjust min-height for tablets */
+    padding: 15px; /* Adjust padding for tablets */
+  }
+  .experience-logo-container {
+    width: 70px;
+    height: 70px;
+  }
+  .experience-card h4 {
+    font-size: 18px;
+  }
+  .experience-card .experience-role {
+    font-size: 13px;
+  }
+  .experience-card .experience-duration,
+  .experience-card .experience-description {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .experience h2 {
+    font-size: 35px;
+  }
+  .experience p {
+    font-size: 16px;
+  }
+  .experience-card-col {
+    width: 200px; /* Adjust column width for mobile */
+    max-width: 200px;
+  }
+  .experience-card {
+    min-height: 260px; /* Adjust min-height for mobile */
+    padding: 10px; /* Adjust padding for mobile */
+  }
+  .experience-logo-container {
+    width: 60px;
+    height: 60px;
+  }
+  .experience-card h4 {
+    font-size: 16px;
+  }
+  .experience-card .experience-role,
+  .experience-card .experience-duration,
+  .experience-card .experience-description {
+    font-size: 11px;
+  }
+}
+
