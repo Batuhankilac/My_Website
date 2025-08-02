@@ -26,6 +26,12 @@ export const NavBar = () => {
 
     const onUpdateActiveLink = (value) => {
         setActiveLink(value);
+        // Bu kısım, sayfa içi kaydırmayı sağlar.
+        // Eğer contact ID'si olan bir element varsa oraya kaydırır.
+        const targetElement = document.getElementById(value);
+        if (targetElement) {
+            targetElement.scrollIntoView({ behavior: 'smooth' });
+        }
     }
 
     return (
@@ -38,8 +44,6 @@ export const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
-        {/* Tekrar eden Navbar.Toggle kaldırıldı */}
-        {/* <Navbar.Toggle /> */} 
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link': 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
@@ -61,6 +65,7 @@ export const NavBar = () => {
                   <img src={navIcon3} alt='Instagram' />
                 </a>
             </div>
+            {/* "Let's Connect" butonunun onClick event'ini onUpdateActiveLink('contact') olarak ayarladım */}
             <button className='vvd' onClick={() => onUpdateActiveLink('contact')}>
                 <span>Let's Connect</span>
             </button>
