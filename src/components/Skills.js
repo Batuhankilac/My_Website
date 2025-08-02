@@ -40,7 +40,7 @@ export const Skills = () => {
                             <Carousel responsive={responsive} infinite={true} className="skill-slider">
                                 <CarouselItem>
                                 <div className="item">
-                                    <img src={meter1} alt="C#" />
+                                    <img src={meter1} alt="C# Icon" /> {/* alt prop eklendi */}
                                     <CarouselCaption>
                                     <h5>Backend Engineering with C#</h5>
                                     </CarouselCaption>
@@ -49,7 +49,7 @@ export const Skills = () => {
                                 
                                 <CarouselItem>
                                 <div className="item">
-                                    <img src={meter2} alt="Unity" />
+                                    <img src={meter2} alt="Unity Icon" /> {/* alt prop eklendi */}
                                     <CarouselCaption>
                                     <h5>Game Development with Unity</h5>
                                     </CarouselCaption>
@@ -58,16 +58,16 @@ export const Skills = () => {
 
                                 <CarouselItem>
                                 <div className="item">
-                                    <img src={meter3} alt="Python" />
+                                    <img src={meter3} alt="Python Icon" /> {/* alt prop eklendi */}
                                     <CarouselCaption>
-                                    <h5>Neural Networks, Machine Learning Processes and Data Science with Ptyhon</h5>
+                                    <h5>Neural Networks, Machine Learning Processes and Data Science with Python</h5>
                                     </CarouselCaption>
                                 </div>
                                 </CarouselItem>
 
                                 <CarouselItem>
                                 <div className="item">
-                                    <img src={meter4} alt="Blender" />
+                                    <img src={meter4} alt="Blender Icon" /> {/* alt prop eklendi */}
                                     <CarouselCaption>
                                     <h5>Animation and Model Design with Blender</h5>
                                     </CarouselCaption>
@@ -78,8 +78,8 @@ export const Skills = () => {
                     </Col>
                 </Row>
             </Container>
-            <img className="background-image-left" src={colorSharp} alt="Background" />
-            <img className="background-image-right" src={colorSharp2}></img>
+            <img className="background-image-left" src={colorSharp} alt="Background Left" /> {/* alt prop eklendi */}
+            <img className="background-image-right" src={colorSharp2} alt="Background Right"></img> {/* alt prop eklendi */}
         </section>
     );
 }

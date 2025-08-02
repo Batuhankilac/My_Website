@@ -1,4 +1,3 @@
-import logo from './assets/img/logo_turuncu.png';
 import './App.css';
 import {NavBar} from './components/NavBar';
 import {Banner} from './components/Banner';

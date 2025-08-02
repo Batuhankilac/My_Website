@@ -1,29 +1,24 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { ArrowRightCircle } from "react-bootstrap-icons";
-import headerImg from "../assets/img/undraw_welcome-aboard.svg" // Make sure to replace with your actual image path
-import "animate.css";
-import TrackVisibility from "react-on-screen";
+// import { ArrowRightCircle } from "react-bootstrap-icons"; // Kullanılmadığı için kaldırıldı
+import headerImg from "../assets/img/undraw_welcome-aboard.svg" 
+// import "animate.css"; // Bu satırı kaldırdık
+// import TrackVisibility from "react-on-screen"; // Kullanılmadığı için kaldırıldı
 
 
 export const Banner = () => {
     const [loopNum, setLoopNum] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const [text, setText] = useState('');
-    const toRotate = ["Computer Engineer", "Software Developer", "Game Developer"];
+    
+    // toRotate dizisini useMemo ile sarmaladık
+    const toRotate = useMemo(() => ["Computer Engineer", "Software Developer", "Game Developer"], []); 
+    
     const [delta, setDelta] = useState(200 - Math.random() * 100);
-    const period = 2000; // Adjust the typing speed
+    const period = 2000; 
 
-    useEffect(() => {
-        let ticker = setInterval(() => {
-            tick();
-        }, delta); // Adjust the typing speed
-
-        return () => { clearInterval(ticker) };
-    }, [text])
-
-
-    const tick = () => {
+    // tick fonksiyonunu useCallback ile sarmaladık
+    const tick = useCallback(() => {
         let i = loopNum % toRotate.length;
         let fullText = toRotate[i];
         let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
@@ -40,24 +35,43 @@ export const Banner = () => {
         } else if (isDeleting && updatedText === '') {
             setIsDeleting(false);
             setLoopNum(loopNum + 1);
-            setDelta(350); // Reset typing speed when starting a new word
+            setDelta(350); 
         }
-    }
+    }, [loopNum, toRotate, isDeleting, text, period]);
+
+    // useEffect bağımlılık dizisine şimdi tick fonksiyonunu güvenle ekleyebiliriz
+    useEffect(() => {
+        let ticker = setInterval(() => {
+            tick();
+        }, delta); 
+
+        return () => { clearInterval(ticker) };
+    }, [text, delta, tick]); 
+
+
+    // scrollToContact fonksiyonu kullanılmadığı için kaldırıldı
+    // const scrollToContact = () => {
+    //     const contactSection = document.getElementById('contact');
+    //     if (contactSection) {
+    //         contactSection.scrollIntoView({ behavior: 'smooth' });
+    //     }
+    // };
 
     return (
         <section className="banner" id="home">
             <Container>
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
-                    <TrackVisibility>
-                    {({ isVisible }) => 
-                    <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
+                    {/* TrackVisibility bileşenini kaldırdık */}
+                    {/* {({ isVisible }) =>  */}
+                    <div className={/* isVisible ? "animate__animated animate__fadeIn": "" */""}> {/* Animasyon sınıflarını kaldırdık */}
                         <span className="tagline" >Welcome to my Portfolio</span>
                         <h1>Hi! I'm Batuhan, I am a<span className="wrap"> {text}</span></h1>
                         <p>I'm a passionate software developer with a focus on creating innovative solutions. I love coding and am always eager to learn new technologies.</p>
-                        <button onClick={() => window.location.href = '#contact'} className="vvd"><span>Let's Connect <ArrowRightCircle size={25}/> </span></button>
-                    </div>}
-                    </TrackVisibility>
+                        {/* "Let's Connect" butonu kaldırıldı */}
+                    </div>
+                    {/* } */}
+                    {/* TrackVisibility kapanış etiketini kaldırdık */}
                     </Col>
                     <Col xs={12} md={6} xl={5}>
                         <img src={headerImg} alt=" Header Img" />
